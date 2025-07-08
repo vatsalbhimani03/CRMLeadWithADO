@@ -1,21 +1,22 @@
 ﻿@model CRMLeadWithADO.Models.LeadsEntity
 
 @{
-    ViewData["Title"] = "AddLead";
+    ViewData["Title"] = "EditLead";
 }
 
 <div class="container">
     <div class="col-md-10 border-1">
-        <form asp-action="AddNewLead">
-            <h2> Create New Lead</h2> 
-            <hr/>
+        <form asp-action="EditLeadDetails">
+            <input asp-for="Id" hidden />
+            <h2> Editing Lead</h2>
+            <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-12 text-center">
                     <b class="">@ViewBag.Message</b>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-2">
                     <label asp-for="Id" class="control-label"></label>
@@ -64,7 +65,7 @@
                     <span asp-validation-for="NextFollowUpDate" class="text-danger"></span>
                 </div>
             </div>
-            <br/>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-warning">Back to List</a>
@@ -74,9 +75,10 @@
 </div>
 <br />
 <div>
-    
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
